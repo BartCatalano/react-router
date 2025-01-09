@@ -14,11 +14,11 @@ function AppHeader () {
 ]
 
     return(
-<header>
+<header className="header">
     <ul>
         {listRoutes.map((page)=>{
             return(
-                <li key={page.title}> <NavLink to={page.path}>{page.title}</NavLink> </li>
+                <li className="listG" key={page.title}> <NavLink to={page.path}>{page.title}</NavLink> </li>
             )
         })}
     </ul>

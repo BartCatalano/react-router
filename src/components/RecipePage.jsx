@@ -21,7 +21,6 @@ useEffect(() => {
 // creo la funzione che richiama axios
 const getData = () => {
   axios.get(`${apiurl}posts`).then((resp) => {
-    console.log(resp);
     setLista(resp.data.data);
 
   })
