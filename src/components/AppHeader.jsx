@@ -9,7 +9,7 @@ function AppHeader () {
     },
     {
         path:"/Recipe",
-        title:"RecipePage"
+        title:"Ricette"
     }
 ]
 

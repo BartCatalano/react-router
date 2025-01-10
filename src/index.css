@@ -23,8 +23,9 @@ body{
     margin: 2px;
 }
 .active{
-    color: darkgreen;
+    color: red;
     font-size: large;
+
 }
 
 .header{
@@ -40,6 +41,10 @@ body{
     background-color: rgb(252, 250, 250);
     width: 100px;
     margin: 3px;
+    
+}
+.listG:hover{
+    transform: scale(1.2) rotate(5deg);
 }
 
 .homeLayout{
