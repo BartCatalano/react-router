@@ -5,6 +5,7 @@ import RecipePage from "./components/pages/RecipePage"
 import FormRecipe from "./components/pages/FormRecipe"
 import AdminPage from "./components/pages/AdminPage"
 import AdminRecipePage from "./components/pages/AdminRecipePage"
+import DettailPages from "./components/pages/DettailPages"
 
 
 function App() {
@@ -17,6 +18,8 @@ return(
 <Route path="/NewRecipe"element={<FormRecipe/>} />
 <Route path="/admin"element={<AdminPage/>} />
 <Route path="/adminrecipe"element={<AdminRecipePage/>} />
+<Route path=":id" element={<DettailPages/>} />
+
   </Route>
 </Routes>
 </BrowserRouter>

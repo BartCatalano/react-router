@@ -110,3 +110,10 @@ body{
     margin-top: 50px;
 }
 
+.buttonDettagli{
+    background-color: white;
+    color: black;
+    padding: 5px;
+    text-align: center;
+    width: 20px;
+}
