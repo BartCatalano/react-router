@@ -3,17 +3,13 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 const apiurl = import.meta.env.VITE_API_URL;
 // creo l'object iniziale cone le chiavi vuote
-const initialFormData = {
-  titolo: "",
-  immagine: "",
-  contenuto: "",
-}
+
 
 function RecipePage () {
    
 
-const [lista, setLista] = useState([]);
-const [formData, setFormData] = useState(initialFormData);
+ const [lista, setLista] = useState([]);
+// const [formData, setFormData] = useState(initialFormData);
 
 useEffect(() => {
   getData();
@@ -26,56 +22,56 @@ const getData = () => {
   })
 }
 
-// creo la funzione per i campi compilativi quando si clicca il submit
-const handArticleForm = (event) => {
-  // creo il prevent default
-  event.preventDefault();
+// // creo la funzione per i campi compilativi quando si clicca il submit
+// const handArticleForm = (event) => {
+//   // creo il prevent default
+//   event.preventDefault();
 
-  // faccio la chiamata axios per post che inserisce la ricetta del form nell object in back
-  axios.post(`${apiurl}posts`, formData).then((resp) => {
+//   // faccio la chiamata axios per post che inserisce la ricetta del form nell object in back
+//   axios.post(`${apiurl}posts`, formData).then((resp) => {
 
-    // creo oggetto del nuovo articolo,
-    const newArticle = {
-      ...formData,
-      id: Date.now(),
+//     // creo oggetto del nuovo articolo,
+//     const newArticle = {
+//       ...formData,
+//       id: Date.now(),
 
-    }
-
-
-    // creo copia dell'array con ila nuovo articolo 
-    const newArray = [...lista, newArticle];
+//     }
 
 
-    // aggiorno lo stato della lista
-    setLista(newArray);
+//     // creo copia dell'array con ila nuovo articolo 
+//     const newArray = [...lista, newArticle];
 
-    // ripulisco i campi del form
-    setFormData(initialFormData);
 
-  })
+//     // aggiorno lo stato della lista
+//     setLista(newArray);
 
-};
+//     // ripulisco i campi del form
+//     setFormData(initialFormData);
+
+//   })
+
+// };
 
 // creo funzione per cancellare il post inserito
-const cancella = (id) => {
+ const cancella = (id) => {
   axios.delete(`${apiurl}posts/${id}`).then((resp) => {
-const newArray = lista.filter(curArticolo => curArticolo.id !== id);
+ const newArray = lista.filter(curArticolo => curArticolo.id !== id);
 
-  setLista(newArray)
-}) }
+   setLista(newArray)
+ }) }
 
 // creo la funzione generica per gli input
-const handleInputChange = (event) => {
-  const { name, value } = event.target;
-  const newData = {
-    ...formData,
-    [name]: value,
+// const handleInputChange = (event) => {
+//   const { name, value } = event.target;
+//   const newData = {
+//     ...formData,
+//     [name]: value,
 
-  };
+//   };
 
-  setFormData(newData);
+//   setFormData(newData);
 
-}
+// }
 
 
 return (
@@ -110,7 +106,7 @@ return (
       </section>
 
 
-      <section>
+      {/* <section>
         <h3>Aggiungi Ricetta</h3>
         <form onSubmit={handArticleForm} >
           <div className="mb-3">
@@ -142,7 +138,7 @@ return (
           </div>
           <button type="submit" className="btn btn-primary">salva</button>
         </form>
-      </section>
+      </section> */}
     </div>
   </>
 );

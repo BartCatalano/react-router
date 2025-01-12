@@ -10,6 +10,10 @@ function AppHeader () {
     {
         path:"/Recipe",
         title:"Ricette"
+    },
+    {
+        path:"/NewRecipe",
+        title:"NewRicette"
     }
 ]
 
