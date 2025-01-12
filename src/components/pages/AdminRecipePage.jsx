@@ -1,11 +1,10 @@
-
 import { useEffect, useState } from "react";
 import axios from "axios";
 const apiurl = import.meta.env.VITE_API_URL;
 
 
 
-function RecipePage () {
+function AdminRecipePage () {
    
 
  const [lista, setLista] = useState([]);
@@ -21,6 +20,18 @@ const getData = () => {
 
   })
 }
+
+
+
+
+// creo funzione per cancellare il post inserito
+ const cancella = (id) => {
+  axios.delete(`${apiurl}posts/${id}`).then((resp) => {
+ const newArray = lista.filter(curArticolo => curArticolo.id !== id);
+
+   setLista(newArray)
+ }) }
+
 
 return (
 
@@ -42,7 +53,7 @@ return (
                       <span className="mx-2 col">{curItem.contenuto} </span>
                     </div>
                   </div>
-                  
+                  <button onClick={() => cancella(curItem.id)} className="btn btn-danger mt-3">cancella</button>
                 </div>
               </div>
             ))
@@ -62,4 +73,4 @@ return (
   
 
 
-export default RecipePage;
+export default AdminRecipePage;

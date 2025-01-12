@@ -11,13 +11,17 @@ function AppHeader () {
         path:"/Recipe",
         title:"Ricette"
     },
-    {
-        path:"/NewRecipe",
-        title:"Crea Ricetta"
-    }
+      {
+        path:"/admin",
+        title:"AdminPage"
+    },
 ]
 
+
+ 
+
     return(
+
 <header className="header">
     <ul>
         {listRoutes.map((page)=>{
@@ -26,6 +30,7 @@ function AppHeader () {
             )
         })}
     </ul>
+    
 </header>
 
 
