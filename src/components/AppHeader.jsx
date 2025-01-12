@@ -13,7 +13,7 @@ function AppHeader () {
     },
     {
         path:"/NewRecipe",
-        title:"NewRicette"
+        title:"Crea Ricetta"
     }
 ]
 

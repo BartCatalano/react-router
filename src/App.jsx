@@ -1,8 +1,8 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import AppLayout from "./components/AppLayout"
-import HomePage from "./components/HomePage"
-import RecipePage from "./components/RecipePage"
-import FormRecipe from "./components/FormRecipe"
+import HomePage from "./components/pages/HomePage"
+import RecipePage from "./components/pages/RecipePage"
+import FormRecipe from "./components/pages/FormRecipe"
 
 
 function App() {
