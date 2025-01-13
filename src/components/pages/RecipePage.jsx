@@ -26,7 +26,7 @@ function RecipePage() {
 
                       <div className="row row-cols rowcols-lg-3 ">
                         <img className="immagine col" src={`${apiurl}${curItem.immagine}`} alt="" />
-                        <span className="mx-2 col">{curItem.contenuto} </span>
+                        <span className="mx-2 col container_description">{curItem.contenuto} </span>
 
                         <Link className="buttonDettagli" to={`/${curItem.id}`}>info</Link>
                       </div>

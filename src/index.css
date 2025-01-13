@@ -9,8 +9,8 @@ ul li, a  {
   
 
 .immagine{
-    max-width: 50%;
-    max-height: 50%;
+    width: 200px;
+    height: 200px;
 }
 
 body{
@@ -21,6 +21,7 @@ body{
     background-color: lightcoral;
     border: 1px solid black;
     margin: 2px;
+    height: 330px;
 }
 .active{
     color: red;
@@ -117,4 +118,22 @@ body{
     text-align: center;
     width: 20px;
     height: 110px;
+    border: 1px solid black;
+}
+
+.container_description{
+    background-color: beige;
+    border: 2px solid black;
+    padding: 2px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    height: 200px;
+}
+
+.dettail_layout{
+    margin: 0 auto;
+    max-width: 1200px;
+     width: 80%;
+    height: calc(100dvh - 195px);
+    text-align: center;
+    padding-top: 100px;
 }

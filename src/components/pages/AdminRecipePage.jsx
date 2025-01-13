@@ -50,10 +50,10 @@ return (
 
                     <div className="row row-cols rowcols-lg-3 ">
                       <img className="immagine col" src={`${apiurl}${curItem.immagine}`} alt="" />
-                      <span className="mx-2 col">{curItem.contenuto} </span>
-                    </div>
+                      <span className="mx-2 col container_description">{curItem.contenuto} </span>
+                    </div><button onClick={() => cancella(curItem.id)} className="btn btn-danger mt-3">cancella</button>
                   </div>
-                  <button onClick={() => cancella(curItem.id)} className="btn btn-danger mt-3">cancella</button>
+                  
                 </div>
               </div>
             ))

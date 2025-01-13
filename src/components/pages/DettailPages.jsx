@@ -23,10 +23,10 @@ useEffect(() =>{
 
 return (
 <>
-{post && <div> 
+{post && <div className="dettail_layout"> 
     <h1>{post.titolo}</h1>
     <p>{post.contenuto}</p>
-    <p>{post.id}</p>
+    
     <img src={`${apiurl}${post.immagine}`} alt="" />
     
  </div> }
