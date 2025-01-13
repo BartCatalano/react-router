@@ -1,28 +1,16 @@
 
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import GlobalContext from "../../contexts/GlobalContext";
 const apiurl = import.meta.env.VITE_API_URL;
 
 
 
 function RecipePage () {
+
+  const {lista} = useContext (GlobalContext);
    
-
- const [lista, setLista] = useState([]);
-
-
-useEffect(() => {
-  getData();
-}, [])
-// creo la funzione che richiama axios
-const getData = () => {
-  axios.get(`${apiurl}posts`).then((resp) => {
-    setLista(resp.data.data);
-
-  })
-}
-
 return (
 
   // creo la card che si dorvrà visualizzare

@@ -7,25 +7,47 @@ import AdminPage from "./components/pages/AdminPage"
 import AdminRecipePage from "./components/pages/AdminRecipePage"
 import DettailPages from "./components/pages/DettailPages"
 import { AlertProvider } from "./contexts/AlertContext"
+import GlobalContext from "./contexts/GlobalContext"
+import { useContext, useEffect, useState } from "react"
 
 
 function App() {
-  return (
-    <AlertProvider>
-      <BrowserRouter>
-        <Routes>
-          <Route element={<AppLayout />}>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/Recipe" element={<RecipePage />} />
-            <Route path="/NewRecipe" element={<FormRecipe />} />
-            <Route path="/admin" element={<AdminPage />} />
-            <Route path="/adminrecipe" element={<AdminRecipePage />} />
-            <Route path=":id" element={<DettailPages />} />
+  
+  const [lista, setLista] = useState([]);
 
-          </Route>
-        </Routes>
-      </BrowserRouter>
-    </AlertProvider>
+
+  useEffect(() => {
+    getData();
+  }, [])
+  // creo la funzione che richiama axios
+  const getData = () => {
+    axios.get(`${apiurl}posts`).then((resp) => {
+      setLista(resp.data.data);
+  
+    })
+  }
+const GlobalContext = useContext();
+const globalContextData = {lista};
+
+
+  return (
+    <GlobalContext value={globalContextData}>
+      <AlertProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route element={<AppLayout />}>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/Recipe" element={<RecipePage />} />
+              <Route path="/NewRecipe" element={<FormRecipe />} />
+              <Route path="/admin" element={<AdminPage />} />
+              <Route path="/adminrecipe" element={<AdminRecipePage />} />
+              <Route path=":id" element={<DettailPages />} />
+
+            </Route>
+          </Routes>
+        </BrowserRouter>
+      </AlertProvider>
+    </GlobalContext>
   )
 
 }
