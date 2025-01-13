@@ -7,12 +7,14 @@ import AdminPage from "./components/pages/AdminPage"
 import AdminRecipePage from "./components/pages/AdminRecipePage"
 import DettailPages from "./components/pages/DettailPages"
 import { AlertProvider } from "./contexts/AlertContext"
+import { createContext, useContext, useEffect, useState } from "react"
 import GlobalContext from "./contexts/GlobalContext"
-import { useContext, useEffect, useState } from "react"
+import axios from "axios"
+const apiurl = import.meta.env.VITE_API_URL;
 
 
 function App() {
-  
+
   const [lista, setLista] = useState([]);
 
 
@@ -23,15 +25,15 @@ function App() {
   const getData = () => {
     axios.get(`${apiurl}posts`).then((resp) => {
       setLista(resp.data.data);
-  
+
     })
   }
-const GlobalContext = useContext();
-const globalContextData = {lista};
+  const { global } = createContext(GlobalContext);
+  const globalContextData = { lista };
 
 
   return (
-    <GlobalContext value={globalContextData}>
+    <GlobalContext.Provider value={globalContextData}>
       <AlertProvider>
         <BrowserRouter>
           <Routes>
@@ -47,7 +49,7 @@ const globalContextData = {lista};
           </Routes>
         </BrowserRouter>
       </AlertProvider>
-    </GlobalContext>
+    </GlobalContext.Provider>
   )
 
 }
